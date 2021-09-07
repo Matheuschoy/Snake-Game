@@ -88,4 +88,8 @@ function iniciarJogo() {
 
 }
 
+function linkedin() {
+    window.location.href = "https://www.linkedin.com/in/matheus-choynowski-1b7a621aa/"
+}
+
 let jogo = setInterval(iniciarJogo, 100);  //intervalo de 100ms

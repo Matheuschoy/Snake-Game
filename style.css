@@ -1,3 +1,31 @@
 body {
-    
+    height: 95vh;
+    width: 95;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    font-family: 'Arial', Times, serif;
+    font-size: 35px;
+}
+
+.botao {
+    font-size: 15px;
+    margin-top: 90px;
+    border: 1px solid grey;
+    padding: 5px;
+
+    transition: 0.3s ease all;
+    cursor: pointer;
+}
+
+#snake {
+    border: 5px solid grey;
+}
+
+.botao:hover {
+    background-color: black;
+    color: white;
 }
