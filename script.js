@@ -41,11 +41,20 @@ function update (event) {  //funcao para nao voltar para trás
 
 
 function iniciarJogo() {
+
     //sair do outro lado do mapa
     if (snake[0].x > 15 * box && direction == "right") snake[0].x = 0;  //direira
     if (snake[0].x < 0 && direction == "left") snake[0].x = 16 * box;   //esquerda
     if (snake[0].y > 15 * box && direction == "down") snake[0].y = 0;   //pra cima
     if (snake[0].y < 0 && direction == "up") snake[0].y = 16 * box;     //pra baixo
+
+    //cordenada para caso o corpo se chocar
+    for(i = 1; i < snake.length; i++) {
+        if (snake[0].x == snake[i].x && snake[0].y == snake[i].y){
+            clearInterval(jogo);
+            alert('GAME OVER! :(')
+        }
+    }
     
     criarBG();
     criarCobrinha();
