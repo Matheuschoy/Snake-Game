@@ -55,18 +55,21 @@ function iniciarJogo() {
     let snakeY = snake[0].y;
 
     //cordenadas
-
     if (direction == "right") snakeX += box;  //direita aumenta
     if (direction == "left") snakeX -= box;   //esquerda diminui
     if (direction == "up") snakeY -= box;   
     if (direction == "down") snakeY += box;
 
-    //retirar o ultimo elemento
+    //funcao de crescimento e aleatoriedade da comidinha
+    if (snakeX != food.x || snakeY != food.y) {
+        snake.pop();
+    }
+    else {food.x = Math.floor(Math.random() * 15 + 1) * box;
+          food.y = Math.floor(Math.random() * 15 + 1) * box;
+    }
 
-    snake.pop();
-
+    
     //acrescentar na frente
-
     let newHead = {
         x: snakeX,
         y: snakeY
