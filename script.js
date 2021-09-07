@@ -20,7 +20,23 @@ function criarCobrinha(){
     }
 }
 
+document.addEventListener('keydown', update);
+
+function update (event) {  //funcao para nao voltar para trás
+    if (event.keyCode == 37 && direction != "right") direction = "left";
+    if (event.keyCode == 38 && direction != "down") direction = "up";
+    if (event.keyCode == 39 && direction != "left") direction = "right";
+    if (event.keyCode == 40 && direction != "up") direction = "down";
+}
+
+
 function iniciarJogo() {
+    //sair do outro lado do mapa
+    if (snake[0].x > 15 * box && direction == "right") snake[0].x = 0;  //direira
+    if (snake[0].x < 0 && direction == "left") snake[0].x = 16 * box;   //esquerda
+    if (snake[0].y > 15 * box && direction == "down") snake[0].y = 0;   //pra cima
+    if (snake[0].y < 0 && direction == "up") snake[0].y = 16 * box;     //pra baixo
+    
     criarBG();
     criarCobrinha();
 
@@ -31,7 +47,7 @@ function iniciarJogo() {
 
     if (direction == "right") snakeX += box;  //direita aumenta
     if (direction == "left") snakeX -= box;   //esquerda diminui
-    if (direction == "up") snakeY -= box;
+    if (direction == "up") snakeY -= box;   
     if (direction == "down") snakeY += box;
 
     //retirar o ultimo elemento
